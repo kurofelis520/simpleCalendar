@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>事件詳情</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>{{ event['name'] }}</h1>
+    </header>
+    <main>
+        <p><strong>日期:</strong> {{ event['date'].strftime('%Y-%m-%d') }}</p>
+        <p><strong>描述:</strong> {{ event['description'] }}</p>
+        <a href="{{ url_for('index') }}">返回行事曆</a>
+    </main>
+</body>
+</html>

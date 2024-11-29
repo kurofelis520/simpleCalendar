@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>搜尋結果</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>搜尋結果: "{{ query }}"</h1>
+    </header>
+    <main>
+        {% for event in events %}
+            <div class="event-item">
+                <h3><a href="{{ url_for('view_event', event_id=event['id']) }}">{{ event['name'] }}</a></h3>
+                <p>日期: {{ event['date'].strftime('%Y-%m-%d') }}</p>
+                <p>{{ event['description'] }}</p>
+            </div>
+        {% else %}
+            <p>找不到符合 "{{ query }}" 的事件。</p>
+        {% endfor %}
+    </main>
+</body>
+</html>

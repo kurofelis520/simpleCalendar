@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>行事曆</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>行事曆</h1>
+        <nav>
+            <a href="{{ url_for('add_event') }}">新增事件</a>
+            <a href="{{ url_for('search') }}">搜尋事件</a>
+        </nav>
+    </header>
+    <main>
+        <h2>即將到來的事件</h2>
+        {% for event in events %}
+            <div class="event-item">
+                <h3><a href="{{ url_for('view_event', event_id=event['id']) }}">{{ event['name'] }}</a></h3>
+                <p>日期: {{ event['date'].strftime('%Y-%m-%d') }}</p>
+                <p>{{ event['description'] }}</p>
+                <a href="{{ url_for('delete_event', event_id=event['id']) }}" class="delete">刪除</a>
+            </div>
+        {% else %}
+            <p>沒有事件。</p>
+        {% endfor %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>新增事件</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>新增新事件</h1>
+    </header>
+    <main>
+        <form action="{{ url_for('add_event') }}" method="post">
+            <label for="name">事件名稱:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="date">事件日期:</label>
+            <input type="date" id="date" name="date" required>
+            
+            <label for="description">描述:</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <button type="submit">新增事件</button>
+        </form>
+    </main>
+</body>
+</html>

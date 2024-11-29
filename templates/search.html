@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>搜尋事件</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>搜尋事件</h1>
+    </header>
+    <main>
+        <form action="{{ url_for('search') }}" method="post">
+            <label for="query">事件名稱:</label>
+            <input type="text" id="query" name="query" required>
+            <button type="submit">搜尋</button>
+        </form>
+    </main>
+</body>
+</html>
